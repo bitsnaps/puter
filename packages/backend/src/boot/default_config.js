@@ -25,7 +25,7 @@ module.exports = {
   nginx_mode: true, // really means "serve http instead of https"
   server_id: KOYEB_PUBLIC_DOMAIN,
   http_port: "auto",
-  domain: `${KOYEB_PUBLIC_DOMAIN}`,
+  domain: "127.0.0.1",
   experimental_no_subdomain: true,
   protocol: "http",
   contact_email: "hey@example.com",
