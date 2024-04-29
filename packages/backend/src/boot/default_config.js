@@ -16,30 +16,36 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+import dotenv from "dotenv";
+dotenv.config();
+
+let KOYEB_PUBLIC_DOMAIN =
+  process.env.KOYEB_PUBLIC_DOMAIN ?? "selfhost-bitsnaps.koyeb.app"; //
+
 module.exports = {
-    config_name: 'generated default config',
-    env: 'dev',
-    nginx_mode: true, // really means "serve http instead of https"
-    server_id: 'localhost',
-    http_port: 'auto',
-    domain: 'puter.localhost',
-    protocol: 'http',
-    contact_email: 'hey@example.com',
+  config_name: "generated default config",
+  env: "dev",
+  nginx_mode: true, // really means "serve http instead of https"
+  server_id: KOYEB_PUBLIC_DOMAIN,
+  http_port: "auto",
+  domain: `${KOYEB_PUBLIC_DOMAIN}`,
+  experimental_no_subdomain: true,
+  protocol: "http",
+  contact_email: "hey@example.com",
 
-    services: {
-        database: {
-            engine: 'sqlite',
-            path: 'puter-database.sqlite',
-        },
-        thumbnails: {
-            engine: 'purejs'
-        },
-        'file-cache': {
-            disk_limit: 16384,
-            disk_max_size: 16384,
-            precache_size: 16384,
-            path: './file-cache',
-
-        }
+  services: {
+    database: {
+      engine: "sqlite",
+      path: "puter-database.sqlite",
     },
+    thumbnails: {
+      engine: "purejs",
+    },
+    "file-cache": {
+      disk_limit: 16384,
+      disk_max_size: 16384,
+      precache_size: 16384,
+      path: "./file-cache",
+    },
+  },
 };
