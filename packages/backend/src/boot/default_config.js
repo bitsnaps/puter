@@ -34,8 +34,8 @@ module.exports = {
   server_id: `${KOYEB_APP_NAME}-${KOYEB_ORGANIZATION_NAME}`,
   http_port: "auto",
   domain: KOYEB_PUBLIC_DOMAIN,
-  //experimental_no_subdomain: true,
-  protocol: "http",
+  experimental_no_subdomain: true,
+  protocol: "https",
   contact_email: "hey@example.com",
 
   services: {
