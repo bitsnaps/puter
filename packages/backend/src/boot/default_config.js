@@ -17,16 +17,24 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-let KOYEB_PUBLIC_DOMAIN = process.env.KOYEB_PUBLIC_DOMAIN ?? "127.0.0.1"; //
+const KOYEB_PUBLIC_DOMAIN =
+  process.env.KOYEB_PUBLIC_DOMAIN ?? "selfhost-bitsnaps.koyeb.app";
+
+const KOYEB_APP_NAME = process.env.KOYEB_APP_NAME ?? "selfhost";
+
+const KOYEB_ORGANIZATION_NAME =
+  process.env.KOYEB_ORGANIZATION_NAME ?? "bitsnaps";
+
+//const KOYEB_SERVICE_NAME = process.env.KOYEB_SERVICE_NAME ?? "puter"; //
 
 module.exports = {
   config_name: "generated default config",
   env: "dev",
   nginx_mode: true, // really means "serve http instead of https"
-  server_id: KOYEB_PUBLIC_DOMAIN,
+  server_id: `${KOYEB_APP_NAME}-${KOYEB_ORGANIZATION_NAME}`,
   http_port: "auto",
-  domain: "127.0.0.1",
-  experimental_no_subdomain: true,
+  domain: KOYEB_PUBLIC_DOMAIN,
+  //experimental_no_subdomain: true,
   protocol: "http",
   contact_email: "hey@example.com",
 
