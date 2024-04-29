@@ -16,8 +16,6 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-import dotenv from "dotenv";
-dotenv.config();
 
 let KOYEB_PUBLIC_DOMAIN =
   process.env.KOYEB_PUBLIC_DOMAIN ?? "selfhost-bitsnaps.koyeb.app"; //
