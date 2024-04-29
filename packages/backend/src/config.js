@@ -111,7 +111,7 @@ const computed_defaults = {
     config.protocol +
     "://" +
     config.domain +
-    (config.domain.endsWith("/")
+    (config.domain.endsWith(".app")
       ? ""
       : config.pub_port !== 80 && config.pub_port !== 443
         ? ":" + config.pub_port
