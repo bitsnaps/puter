@@ -205,7 +205,6 @@ async function UIWindowLogin(options) {
                                     <li>DNS resolves for the domain, and the <code>api.</code> subdomain on that domain</li>
                                     <li><code>http_port</code> is set to the port Puter is listening on (<code>auto</code> will use <code>4100</code> unless that port is in use)</li>
                                     <li><code>pub_port</code> is set to the external port (ex: <code>443</code> if you're using a reverse proxy that serves over https)</li>
-                                    <li>The <code>app_domain</code> is: "${app_domain}"</li>
                                 </ul>
                             </div>`);
               } else {

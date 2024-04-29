@@ -26,16 +26,17 @@ const KOYEB_ORGANIZATION_NAME =
   process.env.KOYEB_ORGANIZATION_NAME ?? "bitsnaps";
 
 //const KOYEB_SERVICE_NAME = process.env.KOYEB_SERVICE_NAME ?? "puter"; //
+// more at: https://www.koyeb.com/docs/build-and-deploy/environment-variables
 
 module.exports = {
   config_name: "generated default config",
   env: "dev",
   nginx_mode: true, // really means "serve http instead of https"
-  server_id: `${KOYEB_APP_NAME}-${KOYEB_ORGANIZATION_NAME}`,
+  server_id: `${KOYEB_PUBLIC_DOMAIN}`,
   http_port: "auto",
-  domain: KOYEB_PUBLIC_DOMAIN,
+  domain: `${KOYEB_APP_NAME}-${KOYEB_ORGANIZATION_NAME}`,
   experimental_no_subdomain: true,
-  protocol: "https",
+  protocol: "http",
   contact_email: "hey@example.com",
 
   services: {
