@@ -34,7 +34,7 @@ module.exports = {
   nginx_mode: true, // really means "serve http instead of https"
   server_id: `${KOYEB_PUBLIC_DOMAIN}`,
   http_port: "auto",
-  domain: `${KOYEB_APP_NAME}-${KOYEB_ORGANIZATION_NAME}`,
+  domain: `${KOYEB_APP_NAME}-${KOYEB_ORGANIZATION_NAME}.koyeb.app/`,
   experimental_no_subdomain: true,
   protocol: "http",
   contact_email: "hey@example.com",
