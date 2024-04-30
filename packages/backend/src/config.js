@@ -111,11 +111,9 @@ const computed_defaults = {
     config.protocol +
     "://" +
     config.domain +
-    (config.domain.endsWith(".app")
-      ? ""
-      : config.pub_port !== 80 && config.pub_port !== 443
-        ? ":" + config.pub_port
-        : ""),
+    (config.pub_port !== 80 && config.pub_port !== 443
+      ? ":" + config.pub_port
+      : ""),
   api_base_url: (config) =>
     config.experimental_no_subdomain
       ? config.origin
