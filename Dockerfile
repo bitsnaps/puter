@@ -23,12 +23,22 @@ COPY package*.json ./
 # Copy the source files
 COPY . .
 
+# Install mocha
+RUN npm install -g mocha
+
 # Install node modules
-RUN npm cache clean --force \
-    && npm ci
+RUN npm cache clean --force && \
+    for i in 1 2 3; do \
+        npm ci && break || \
+        if [ $i -lt 3 ]; then \
+            sleep 15; \
+        else \
+            exit 1; \
+        fi; \
+    done
 
 # Run the build command if necessary
-RUN npm run build
+RUN cd src/gui && npm run build && cd -
 
 # Production stage
 FROM node:21-alpine
@@ -46,7 +56,7 @@ RUN mkdir -p /opt/puter/app
 WORKDIR /opt/puter/app
 
 # Copy built artifacts and necessary files from the build stage
-COPY --from=build /app/dist ./dist
+COPY --from=build /app/src/gui/dist ./dist
 COPY --from=build /app/node_modules ./node_modules
 COPY . .
 
